@@ -3,7 +3,7 @@ import { Todo } from 'src/interfaces/todo.interface';
 
 @Injectable()
 export class TodosService {
-     todos=[
+     todos: Todo[]=[
         {
             'id': 1,
             'title': 'Todos app',
@@ -26,5 +26,9 @@ export class TodosService {
 
     findAll(): Todo[]{
         return this.todos
+    }
+
+    create(todo: Todo){
+        this.todos=[...this.todos, todo];
     }
 }
