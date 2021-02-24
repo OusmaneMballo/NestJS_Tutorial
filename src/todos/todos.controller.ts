@@ -15,8 +15,10 @@ export class TodosController {
         return this.todoService.findAll();
     }
 
-    @Post()
-    createTodo(@Body() newTodo: Todo){
-        
+    @Post('create')
+    createTodo(@Body() newTodo){
+        //console.log(newTodo);
+        //this.createTodo(newTodo);
+        this.todoService.create(newTodo);
     }
 }

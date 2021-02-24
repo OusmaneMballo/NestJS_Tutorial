@@ -29,6 +29,7 @@ export class TodosService {
     }
 
     create(todo: Todo){
-        this.todos=[...this.todos, todo];
+        
+        this.todos.push(todo);
     }
 }
