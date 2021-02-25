@@ -32,4 +32,8 @@ export class TodosService {
         
         this.todos.push(todo);
     }
+
+    findOnTodo(id: string){
+        return this.todos.find(todo=>todo.id===Number(id));
+    }
 }
