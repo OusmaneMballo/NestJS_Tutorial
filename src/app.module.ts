@@ -8,16 +8,7 @@ import { TodosController} from './todos/todos.controller';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'tuto_nestjs',
-      entities: [],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(),
     
   ],
   controllers: [AppController, CatsController, TodosController],
