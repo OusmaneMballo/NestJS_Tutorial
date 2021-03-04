@@ -2,17 +2,20 @@ import { Body, Controller, Get, Post, Param, Patch, Delete} from '@nestjs/common
 import { Todo } from 'src/interfaces/todo.interface';
 import { TodoDto } from './dto/todo.dto';
 import { TodosService } from './todos.service';
+import { TodoEntity } from './todo.entity';
 
 //localhost:3000/todos
 @Controller('todos')
 export class TodosController {
 
-    constructor(private readonly todoService: TodosService){
+    constructor(){
 
     }
 
+    todoService: TodosService;
+
     @Get()
-    findAll(): Todo[]{
+    findAll(): any{
         return this.todoService.findAll();
     }
 

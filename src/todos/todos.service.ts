@@ -1,9 +1,16 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { TodoEntity } from './todo.entity';
 import { Todo } from 'src/interfaces/todo.interface';
 import { TodoDto } from './dto/todo.dto';
 
 @Injectable()
 export class TodosService {
+   constructor(){}
+
+     findAll():any{
+        return null;
+      }
+
      todos: Todo[]=[
         {
             'id': 1,
@@ -25,9 +32,9 @@ export class TodosService {
         },
     ];
 
-    findAll(): Todo[]{
+   /* findAll(): Todo[]{
         return this.todos
-    }
+    }*/
 
     create(todo: TodoDto){
         
