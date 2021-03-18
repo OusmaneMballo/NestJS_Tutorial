@@ -1,14 +1,20 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { TodoEntity } from './todo.entity';
 import { Todo } from 'src/interfaces/todo.interface';
 import { TodoDto } from './dto/todo.dto';
+import { promises } from 'fs';
 
 @Injectable()
 export class TodosService {
-   constructor(){}
+   constructor(
+       @InjectRepository(TodoEntity)
+       private todoRepository: Repository<TodoEntity>,
+   ){}
 
-     findAll():any{
-        return null;
+     findAll():Promise<TodoEntity[]>{
+        return this.todoRepository.find();
       }
 
      todos: Todo[]=[

@@ -8,14 +8,15 @@ import { TodoEntity } from './todo.entity';
 @Controller('todos')
 export class TodosController {
 
-    constructor(){
+    constructor(private readonly todoService: TodosService){
 
     }
 
-    todoService: TodosService;
-
+    
+    //async
     @Get()
-    findAll(): any{
+    findAll(): Promise<TodoEntity[]>{
+        console.log("okey");
         return this.todoService.findAll();
     }
 
