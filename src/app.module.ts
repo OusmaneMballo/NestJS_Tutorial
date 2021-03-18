@@ -1,10 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { from } from 'rxjs';
 import { getConnectionOptions } from 'typeorm';
 import { AppService } from './app.service';
 import { CatsController } from './cats/cats.controller';
-import { TodosController} from './todos/todos.controller';
 import { TodosModule } from './todos/todos.module';
 
 @Module({
@@ -18,7 +16,7 @@ import { TodosModule } from './todos/todos.module';
     TodosModule,
     
   ],
-  controllers: [CatsController, TodosController],
+  controllers: [CatsController],
   providers: [AppService,],
 })
 export class AppModule {}
